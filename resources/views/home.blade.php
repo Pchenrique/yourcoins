@@ -36,7 +36,7 @@
             <div class="perfil text-center">{{$user->name}}</div>
             <ul>
                 <li><a href="">Painel de Controle</a></li>
-                <li><a href="">Deposito</a></li>
+                <li><a href="{{route('deposito.create')}}">Deposito</a></li>
                 <li><a href="">Saque</a></li>
                 <li><a href="">Historico</a></li>
                 <li><a href="">Suporte</a></li>
