@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('deposito', 'DepositoController');
 
 Route::get('/', function () {
     return view('welcome');
