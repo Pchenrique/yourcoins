@@ -1,0 +1,33 @@
+body, html {
+   height: 100%;
+}
+
+.parallax { 
+  /* The image used */
+   background-image: url("../img/wallpaper.jpg");
+
+  /* Full height */
+   height: 100%; 
+
+  /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
+.navbar{
+  background: black;
+  box-shadow: 2px 2px 15px black;  
+  background-color: rgba(0,0,0,.8);
+}   
+
+.detalhes_barra_titulo{
+     font-family: 'Roboto', sans-serif;
+}
+
+.detalhes_barra_titulo:hover { 
+    color: #ed8200; 
+    transition: 0.4s;
+}
+

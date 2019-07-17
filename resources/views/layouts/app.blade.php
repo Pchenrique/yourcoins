@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>     
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -18,9 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
+        <h1 class="text-hide" style="background-image: url('http://pngimg.com/uploads/bitcoin/bitcoin_PNG48.png');">Bootstrap</h1>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
