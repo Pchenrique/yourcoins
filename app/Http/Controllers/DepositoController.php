@@ -30,7 +30,9 @@ class DepositoController extends Controller
      */
     public function create()
     {
-        return view('deposito.criar');
+    	$user = auth()->user();
+        return view('deposito.criar', ['user'=>$user]);
+        
     }
 
     /**
@@ -42,7 +44,7 @@ class DepositoController extends Controller
     public function store(Request $request)
     {
     	$deposito = new Deposito;
-        $deposito->valor = $request->input('valor');
+    	$deposito->valor = $request->input('valor');
         $deposito->status = "Analisando";
         $deposito->user_id = auth()->user()->id;
 
