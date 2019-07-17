@@ -11,6 +11,7 @@
 |
 */
 Route::resource('deposito', 'DepositoController');
+Route::resource('saque', 'SaqueController');
 
 Route::get('/', function () {
     return view('welcome');
