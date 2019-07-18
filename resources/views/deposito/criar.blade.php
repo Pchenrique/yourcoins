@@ -14,14 +14,13 @@
                         <div class="form-group row">
                             <label name="valor" class="col-md-4 col-form-label text-md-right">Valor</label>
                                 <input id="valor" name="valor" type="number" class="form-control">
-                            </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
-                            </div>
+                        
+                    <div class="form-group row mb-0">
+                        <div class="col-md-8 offset-md-4">
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
                         </div>
+                    </div>
                     </form>
                 </div>
                 <table class="table">

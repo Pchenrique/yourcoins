@@ -49,9 +49,7 @@ class DepositoController extends Controller
         $deposito->user_id = auth()->user()->id;
 
         $deposito->save();
-
         return redirect('deposito/create');
-      
     }
 
     /**
