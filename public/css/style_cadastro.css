@@ -1,19 +1,22 @@
 body, html {
-   height: 100%;
+   
    font-family: 'Roboto', sans-serif;
-   background-image: url("../img/wallpaper.jpg");
+    background-image: url("../img/wallpaper.jpg");
+
+ 
 
   /* Create the parallax scrolling effect */
    background-attachment: fixed;
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
-  }
+}
 /*Css da área de login*/
 :root {
     --input-padding-x: 1.4rem;
     --input-padding-y: .70rem;
   }  
+  
 
   .card{
     background: black;
@@ -40,11 +43,16 @@ body, html {
   .form-signin {
     width: 100%;
   }
-
-  .form-check{
-      margin-left: 10px;
-      margin-bottom: 15px;
+  
+  .form-signin .btn {
+    font-size: 12px;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    padding: 10px;
+    transition: all 0.2s;
+    border-color: #ed8200; 
   }
+  
   .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -74,22 +82,6 @@ body, html {
     transition: all .1s ease-in-out;
   }
   
-  .form-label-group input::-webkit-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input:-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-ms-input-placeholder {
-    color: transparent;
-  }
-  
-  .form-label-group input::-moz-placeholder {
-    color: transparent;
-  }
-  
   .form-label-group input::placeholder {
     color: transparent;
   }
@@ -105,34 +97,14 @@ body, html {
     font-size: 10px;
     color: #777;
   }
-  /*Fim do efeito dos inputs*/
-
-  .btn-cadastro{
-    color: white;
-    text-transform: uppercase;
-    background-color: cornflowerblue;
-    border-radius: 0.8rem;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 10px;
-  }
-  .btn-cadastro:hover{
-    color: white;
-    text-transform: uppercase;
-    background-color: #2c6fff;
-  } 
 
   .btn-login:hover{
     background: #ed8200;
     transition: 0.6s;
-    border-color: #ed8200; 
   }
 
-  .btn-login{
-    font-size: 12px;
-    border-radius: 0.8rem;
-    font-weight: bold;
-    padding: 10px;
-    transition: all 0.2s;
-    border-color: #ed8200; 
+  @media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
   }
+}

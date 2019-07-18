@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Login</title>
+    <title>Login - YourCoins</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -19,10 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/Style_login.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style_login.css')}}">
 </head>
 <body>
-    <div class="parallax">
   <nav class="navbar navbar-expand-lg static-top navbar-dark">
        
 
@@ -37,11 +36,11 @@
       </div>
       <div class="container">
       <div class="row">
-        <div class="col-sm-9 col-md-6 col-lg-5 mx-auto">
+        <div class="col-sm-9 col-md-8 col-lg-5 mx-auto">
           <div class="card card-signin my-5">
             <div class="card-body">
                 <center>
-                 <a class="navbar-brand" href="#">
+                 <a class="navbar-brand" href="/yourcoins/public/">
             <img  src="img/logo.png" width="235" height="76" class="d-inline-block align-top" alt="">
                  </a></center>
               <h5 class="card-title text-center text-white my-3">{{ __('Login') }}</h5>
@@ -71,13 +70,15 @@
                       <label class="form-check-label text-white" for="remember">
                           {{ __('Matenha-me conectado!') }}
                       </label>
+                      
                 </div>
+
                 <button class="btn btn-outline-info btn-block text-white btn-login" type="submit">LOGIN</button>
+                 @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" type="text" class="text-white float-right"><i class="fab fa-facebook-f mr-2"></i>Esqueceu a senha?</a>                    
+                      @endif
                 <hr class="my-4">
                 <a class="btn btn-lg btn-cadastro btn-block" href="{{ route('register') }} "type="submit"><i class="fab fa-google mr-2"></i> CADASTRE-SE</a>
-                @if (Route::has('password.request'))
-                  <a class="btn btn-lg btn-esqueceu-senha btn-block" href="{{ route('password.request') }}" type="submit"><i class="fab fa-facebook-f mr-2"></i> Esqueceu a Senha?</a>
-                @endif
               </form>
             </div>
           </div>
@@ -85,7 +86,6 @@
       </div>
     </div>
 </div>    
-</div>
 </body>
 </html>
 
