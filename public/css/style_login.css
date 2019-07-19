@@ -136,3 +136,18 @@ body, html {
     transition: all 0.2s;
     border-color: #ed8200; 
   }
+
+  #btn-login-reset:hover{
+    background: #ed8200;
+    transition: 0.6s;
+    border-color: #ed8200; 
+  }
+
+  #btn-login-reset{
+    font-size: 13px;
+    border-radius: 0.8rem;
+    font-weight: bold;
+    padding: 10px;
+    transition: all 0.2s;
+    border-color: #ed8200; 
+  }
