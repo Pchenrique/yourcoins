@@ -35,10 +35,10 @@
 
             <div class="perfil text-center">{{$user->name}}</div>
             <ul>
-                <li><a href="{{route('home')}}">Painel de Controle</a></li>
-                <li><a href="{{route('deposito.create')}}">Deposito</a></li>
-                <li><a href="{{route('saque.create')}}">Saque</a></li>
-                <li><a href="{{route('trade.index')}}">Meus Trader</a></li>
+                <!--<li><a href="{{route('home')}}">Painel de Controle</a></li>-->
+                <li><a href="{{route('deposito.index')}}">Depositos</a></li>
+                <li><a href="{{route('saque.index')}}">Saques</a></li>
+                <li><a href="{{route('trade.index')}}">Fazer trade</a></li>
                 <li><a href="{{route('suporte.create')}}">Suporte</a></li>
             </ul>
 
@@ -73,10 +73,12 @@
                 </div>
             </nav>
             <div class="container">
-               <div class="container">
-                   <strong>Saldo Disponivel: </strong><span>{{$user->saldo->valordisponivel}} BTC</span>
+               <div class="container" style="border: 1px solid red; width: 50%; display: inline-block;">
+                   
                </div>
-               
+               <div class="container" style="border: 1px solid blue; width: 50%; display: inline-block;">
+                   
+               </div>
             </div>
         </div>
     </div>

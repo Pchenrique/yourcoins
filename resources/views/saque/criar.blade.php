@@ -30,7 +30,7 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col">Ordem</th>
                       <th scope="col">Valor</th>
                       <th scope="col">Carteira</th>
                       <th scope="col">Data</th>
@@ -44,7 +44,13 @@
                       <td>{{$saque->valor}}</td>
                       <td>{{$saque->carteira}}</td>
                       <td>{{$saque->created_at}}</td>
-                      <td>{{$saque->status}}</td>
+                      @if($saque->status == 'Analisando')
+                        <td style="color:grey">{{$saque->status}}</td>
+                      @elseif($saque->status == 'Confirmado')
+                        <td style="color:green">{{$saque->status}}</td>
+                      @else
+                        <td style="color:red">{{$saque->status}}</td>
+                      @endif
                     </tr>
                     @endforeach
                   </tbody>

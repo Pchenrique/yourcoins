@@ -12,6 +12,9 @@
 */
 Route::resource('deposito', 'DepositoController');
 Route::resource('saque', 'SaqueController');
+Route::resource('suporte', 'SuporteController');
+Route::resource('trade', 'TradeController');
+Route::resource('saldo', 'SaldoController');
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +23,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home/criando', 'HomeController@criando')->name('home.criando');
+
+Route::post('/saldo/validar/{valor}/{id}', 'SaldoController@validar')->name('saldo.validar');
+Route::get('/deposito/buscar', 'DepositoController@buscar')->name('deposito.buscar');
+
+
