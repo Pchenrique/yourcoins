@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\saque;
+use App\Suporte;
 
-class SaqueController extends Controller
+class SuporteController extends Controller
 {
     public function __construct()
     {
@@ -16,15 +16,11 @@ class SaqueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Retorna todas as reclamações de um usuário em especifico.
     public function index()
     {
         $user = auth()->user();
-        if($user->tipo == "admin"){
-            $saques = Saque::all()->where('status', '=', 'Analisando');
-            return view('saque.exibir_analisando', ['saques'=>$saques]);
-        }else{
-            echo "Você não é admin";
-        }
+        return view('suporte.exibir', ['user'=>$user]);
     }
 
     /**
@@ -35,7 +31,7 @@ class SaqueController extends Controller
     public function create()
     {
         $user = auth()->user();
-        return view('saque.criar', ['user'=>$user]);
+        return view('suporte.criar', ['user'=>$user]);
     }
 
     /**
@@ -46,15 +42,18 @@ class SaqueController extends Controller
      */
     public function store(Request $request)
     {
-        $saque = new Saque;
-        $saque->valor = $request->input('valor');
-        $saque->carteira= $request->input('carteira');
-        $saque->status = "Analisando";
-        $saque->user_id = auth()->user()->id;
+        $suporte = new Suporte;
+        $suporte->nome = $request->input('nome');
+        $suporte->email = $request->input('email');
+        $suporte->titulo = $request->input('titulo');
+        $suporte->descricao = $request->input('descricao');
+        $suporte->resposta = "A equipe de suporte está analisando o chamado";
+        $suporte->status = "Analisando";
+        $suporte->user_id = auth()->user()->id;
 
-        $saque->save();
+        $suporte->save();
 
-        return redirect('saque/create');
+        return redirect('suporte/create');
     }
 
     /**
@@ -65,7 +64,8 @@ class SaqueController extends Controller
      */
     public function show($id)
     {
-        //
+        $suporte = Suporte::find($id);
+        return view('suporte.detalhe', ['suporte'=>$suporte]);
     }
 
     /**
@@ -76,14 +76,7 @@ class SaqueController extends Controller
      */
     public function edit($id)
     {
-        $user = auth()->user();
-        if($user->tipo == "admin"){
-            $saque = Saque::find($id);
-            $usuario = User::find($saque->user_id);
-            return view('saque.edit', ['saque'=>$saque, 'usuario'=>$usuario]);
-        }else{
-            echo "você não é admin";
-        }
+        //
     }
 
     /**

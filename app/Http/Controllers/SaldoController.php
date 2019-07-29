@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\saque;
+use App\Saldo;
+use App\User;
+use App\Deposito;
 
-class SaqueController extends Controller
+class SaldoController extends Controller
 {
     public function __construct()
     {
@@ -18,10 +20,20 @@ class SaqueController extends Controller
      */
     public function index()
     {
+        //
+    }
+
+    public function validar($valor, $id){
+        
         $user = auth()->user();
         if($user->tipo == "admin"){
-            $saques = Saque::all()->where('status', '=', 'Analisando');
-            return view('saque.exibir_analisando', ['saques'=>$saques]);
+            $usuario = User::find($id);
+            $saldo = Saldo::find($usuario->saldo->id);
+            $saldo->valordisponivel += $valor;
+            $saldo->save();
+
+            $depositos = Deposito::all()->where('status', '=', 'Analisando');
+            return view('deposito.exibir_analisando', ['depositos'=>$depositos]);
         }else{
             echo "Você não é admin";
         }
@@ -34,8 +46,7 @@ class SaqueController extends Controller
      */
     public function create()
     {
-        $user = auth()->user();
-        return view('saque.criar', ['user'=>$user]);
+        //
     }
 
     /**
@@ -46,15 +57,13 @@ class SaqueController extends Controller
      */
     public function store(Request $request)
     {
-        $saque = new Saque;
-        $saque->valor = $request->input('valor');
-        $saque->carteira= $request->input('carteira');
-        $saque->status = "Analisando";
-        $saque->user_id = auth()->user()->id;
+        $user = auth()->user();
+        $saldo = new Saldo;
+        $saldo->valordisponivel = 0;
+        $saldo->user_id = $user->id;
+        $saldo->save();
 
-        $saque->save();
-
-        return redirect('saque/create');
+        return view('home', ['user'=>$user]);
     }
 
     /**
@@ -76,14 +85,7 @@ class SaqueController extends Controller
      */
     public function edit($id)
     {
-        $user = auth()->user();
-        if($user->tipo == "admin"){
-            $saque = Saque::find($id);
-            $usuario = User::find($saque->user_id);
-            return view('saque.edit', ['saque'=>$saque, 'usuario'=>$usuario]);
-        }else{
-            echo "você não é admin";
-        }
+        //
     }
 
     /**

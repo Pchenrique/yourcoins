@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\saque;
 
-class SaqueController extends Controller
+class TradeController extends Controller
 {
     public function __construct()
     {
@@ -19,12 +18,7 @@ class SaqueController extends Controller
     public function index()
     {
         $user = auth()->user();
-        if($user->tipo == "admin"){
-            $saques = Saque::all()->where('status', '=', 'Analisando');
-            return view('saque.exibir_analisando', ['saques'=>$saques]);
-        }else{
-            echo "Você não é admin";
-        }
+        return view('trade.exibir', ['user'=>$user]);
     }
 
     /**
@@ -34,8 +28,7 @@ class SaqueController extends Controller
      */
     public function create()
     {
-        $user = auth()->user();
-        return view('saque.criar', ['user'=>$user]);
+        //
     }
 
     /**
@@ -46,15 +39,7 @@ class SaqueController extends Controller
      */
     public function store(Request $request)
     {
-        $saque = new Saque;
-        $saque->valor = $request->input('valor');
-        $saque->carteira= $request->input('carteira');
-        $saque->status = "Analisando";
-        $saque->user_id = auth()->user()->id;
-
-        $saque->save();
-
-        return redirect('saque/create');
+        //
     }
 
     /**
@@ -76,14 +61,7 @@ class SaqueController extends Controller
      */
     public function edit($id)
     {
-        $user = auth()->user();
-        if($user->tipo == "admin"){
-            $saque = Saque::find($id);
-            $usuario = User::find($saque->user_id);
-            return view('saque.edit', ['saque'=>$saque, 'usuario'=>$usuario]);
-        }else{
-            echo "você não é admin";
-        }
+        //
     }
 
     /**

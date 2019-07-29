@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Deposito;
+use App\User;
 
 class DepositoController extends Controller
 {
@@ -20,7 +21,23 @@ class DepositoController extends Controller
 
     public function index()
     {
-        
+        $user = auth()->user();
+        if($user->tipo == "admin"){
+            $depositos = Deposito::all()->where('status', '=', 'Analisando');
+            return view('deposito.exibir_analisando', ['depositos'=>$depositos]);
+        }else{
+            echo "foi mal você não é admin";
+        }
+
+    }
+    public function buscar(){
+        $user = auth()->user();
+        if($user->tipo == "admin"){
+            $depositos = Deposito::all();
+            return view('deposito.exibir', ['depositos'=>$depositos]);
+        }else{
+            echo "foi mal você não é admin";
+        }
     }
 
     /**
@@ -47,6 +64,7 @@ class DepositoController extends Controller
     	$deposito->valor = $request->input('valor');
         $deposito->status = "Analisando";
         $deposito->user_id = auth()->user()->id;
+        $deposito->updated_at = null;
 
         $deposito->save();
         return redirect('deposito/create');
@@ -71,6 +89,14 @@ class DepositoController extends Controller
      */
     public function edit($id)
     {
+        $user = auth()->user();
+        if($user->tipo == "admin"){
+            $deposito = Deposito::find($id);
+            $usuario = User::find($deposito->user_id);
+            return view('deposito.edit', ['deposito'=>$deposito, 'usuario'=>$usuario]);
+        }else{
+            echo "você não é admin";
+        }
       	
     }
 
@@ -83,6 +109,18 @@ class DepositoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = auth()->user();
+        if($user->tipo == "admin"){
+            $deposito = Deposito::find($id);
+            $usuario = User::find($deposito->user_id);
+            $deposito->status = $request->input('status');
+            $deposito->save();
+
+            return view('deposito.edit', ['deposito'=>$deposito, 'usuario'=>$usuario]);
+
+        }else{
+            echo "você não é admin";
+        }
 
     }
 
