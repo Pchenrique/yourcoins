@@ -60,7 +60,7 @@
 
                             <div class="col-md-12 form-label-group">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Digite seu email">
-                                <label for="email">Endereço de Email</label>
+                                <label for="email" class="ml-3">Endereço de Email</label>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
