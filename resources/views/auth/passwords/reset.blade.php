@@ -56,7 +56,7 @@
                   
                             <div class="col-md-12 form-label-group">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" placeholder="Endereço de Email" autofocus>
-                                <label for="email">Endereço de Email</label>
+                                <label for="email" class="ml-3">Endereço de Email</label>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@
                         
                             <div class="col-md-12 form-label-group">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Digite uma nova senha">
-                                <label for="password">Digite uma nova senha</label>
+                                <label for="password" class="ml-3">Digite uma nova senha</label>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
 
                             <div class="col-md-12 form-label-group">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Repita a senha digitada">
-                                <label for="password-confirm">Repita a senha digitada</label>
+                                <label for="password-confirm" class="ml-3">Repita a senha digitada</label>
                             </div>
                         <div class="col-md-12">
                            <button class="btn btn-outline-info btn-block text-white" id="btn-login-reset" type="submit">{{ __('Redefinir senha') }}</button>
