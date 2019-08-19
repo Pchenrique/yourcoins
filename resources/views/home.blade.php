@@ -21,63 +21,67 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/Style_home.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style_home.css')}}">
 </head>
 <body>
 <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <div class="col-lg-6 text-center">
-                    <p>logo</p>
-                </div> 
+                <img  src="img/logo.png" width="215" height="76" class="d-inline-block align-top" alt="">
+                <div class="perfil text-center pt-4">{{$user->name}}</div>
             </div>
 
-            <div class="perfil text-center">{{$user->name}}</div>
-            <ul>
-                <li><a href="{{route('home')}}">Painel de Controle</a></li>
-                <li><a href="{{route('deposito.create')}}">Deposito</a></li>
-                <li><a href="{{route('saque.create')}}">Saque</a></li>
-                <li><a href="{{route('trade.index')}}">Meus Trader</a></li>
-                <li><a href="{{route('suporte.create')}}">Suporte</a></li>
-            </ul>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
+                    <!--<ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Home 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li> 
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>-->
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-chart-bar"></i> Histórico</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-arrow-alt-circle-right"></i> Saques</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-arrow-alt-circle-left"></i> Depósitos</a>
+                </li>
 
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar"><i class="fas fa-phone"></i> Suporte</a>
+                </li>
+            </ul>
         </nav>
 
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar" id="barra">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-outline-info">
-                        <i class="fas fa-angle-double-left"></i>
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
                     </button>
 
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button type="button" id="btc-button">
+                        <img src="img/btc.svg"><span>{{$user->saldo->valordisponivel}} BTC</span>
+                    </button>
+                  <!--  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a  href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();" id="sair">Sair <i class="fas fa-sign-out-alt"></i>
-                                </a> 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </nav>
-            <div class="container">
-               <div class="container">
-                   <strong>Saldo Disponivel: </strong><span>{{$user->saldo->valordisponivel}} BTC</span>
-               </div>
-               
-            </div>
+
         </div>
     </div>
 
@@ -95,6 +99,5 @@
             });
         });
     </script>
-   
 </body>
 </html>
