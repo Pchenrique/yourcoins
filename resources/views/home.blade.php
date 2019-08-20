@@ -34,31 +34,23 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
-                    <!--<ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li> 
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>-->
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-chart-bar"></i> Histórico</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas fa-arrow-alt-circle-right"></i> Saques</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-arrow-alt-circle-left"></i> Depósitos</a>
+                    <a href="{{route('home')}}" data-toggle="collapse" aria-expanded="false"><i class="fas fa-home"></i> Home</a>
                 </li>
 
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar"><i class="fas fa-phone"></i> Suporte</a>
+                    <a href="{{route('saque.create')}}"><i class="fas fa-arrow-alt-circle-right"></i> Saques</a>
+                </li>
+
+                <li>
+                    <a href="{{route('deposito.create')}}"><i class="fas fa-arrow-alt-circle-left"></i> Depósitos</a>
+                </li>
+
+                <li>
+                    <a href="{{route('trade.index')}}"><i class="fas fa-chart-bar"></i> Meus Trader</a>
+                </li>
+
+                <li>
+                    <a href="{{route('suporte.create')}}"><i class="fas fa-phone"></i> Suporte</a>
                 </li>
             </ul>
         </nav>
@@ -73,15 +65,26 @@
                         <i class="fas fa-align-left"></i>
                     </button>
 
-                    <button type="button" id="btc-button">
-                        <img src="img/btc.svg"><span>{{$user->saldo->valordisponivel}} BTC</span>
-                    </button>
-                  <!--  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
+                    <button type="button" class="btn btn-btc">
+                        <img src="https://img.icons8.com/metro/26/000000/bitcoin.png"><span>{{$user->saldo->valordisponivel}} BTC</span>
                     </button>
                 </div>
             </nav>
 
+
+            <div class="card text-white" id="card-um">
+                <div class="card-header" id="header-um">Faça já seu depósito</div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+            </div>
+
+            <div class="card text-white float-right" id="card-dois">
+                <div class="card-header" id="header-um">Faça já seu depósito</div>
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+            </div>
         </div>
     </div>
 

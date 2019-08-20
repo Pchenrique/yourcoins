@@ -17,7 +17,6 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -150,28 +149,44 @@ a.article:hover {
     color: #fff;
 }
 
-#btc-button {
+.btn-btc {
     background: #ed8200;
     box-shadow: none;
     outline: none !important;
     border: none;
-    text-align: center;
     font-size: 0.9em !important;
-    border-radius: 5px;
-    padding-left: 100px;
-}
-
-#btc-button img {
-    color: white;
-    position: relative;
-    right: 90px;
-    top: 10px;
-}
-
-#btc-button span {
-    color: #fff;
-    position: relative;
-    right: 40px;
-    top: -20px;
     
+}
+
+.btn-btc span {
+    position: relative;
+    color: #fff;
+    right: 5px;
+    top: 2px;
+    font-size: 15px;
+}
+
+.btn-btc img {
+    position: relative;
+    right: 10px;
+    top: -1px;
+}
+
+#card-um {
+    max-width: 25rem; 
+    background: #111;
+    margin-top: 100px;
+    height: 300px;
+}
+
+#header-um {
+    background: #ed8200;
+}
+
+#card-dois {
+    max-width: 35rem;
+    background: #111;
+    margin-top: -300px;
+    height: 300px;
+    right: 100px;
 }
