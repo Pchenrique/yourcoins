@@ -3,6 +3,21 @@ body, html {
    font-family: 'Roboto', sans-serif;
 }
 
+.parallax { 
+  /* The image used */
+   background-image: url("../img/wallpaper.jpg");
+
+  /* Full height */
+   height: 100%; 
+   width: 100%;
+
+  /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+
 
 a,
 a:hover,
@@ -46,8 +61,8 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #111;
     color: #fff;
+    background-color: rgba(0,0,0,.9);
     transition: all 0.3s;
 }
 
@@ -57,7 +72,9 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #090909;
+    background: #111;
+    background-color: rgba(0,0,0,.9);
+
 }
 
 #sidebarCollapse {
@@ -127,6 +144,7 @@ a.article:hover {
     transition: all 0.3s;
 }
 
+
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -141,12 +159,21 @@ a.article:hover {
     #sidebarCollapse span {
         display: none;
     }
+
+    .card-dois {
+        margin-top: 20px;
+        margin-right: 40px;
+        height: 330px;
+    }
+    
 }
 
 #barra{
     background: #111;
     border-radius: 5px;
     color: #fff;
+    background-color: rgba(0,0,0,.8);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
 }
 
 .btn-btc {
@@ -172,21 +199,23 @@ a.article:hover {
     top: -1px;
 }
 
-#card-um {
-    max-width: 25rem; 
-    background: #111;
-    margin-top: 100px;
-    height: 300px;
+.card-um {
+    background: black; 
+    top: 100px;
+    height: 330px; 
+    max-width: 27rem;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.8);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
 }
 
-#header-um {
-    background: #ed8200;
+.card-dois {
+    background: red;
+    top: 100px;
+    height: 330px;
+    left: 16px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .8);
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.8);
 }
 
-#card-dois {
-    max-width: 35rem;
-    background: #111;
-    margin-top: -300px;
-    height: 300px;
-    right: 100px;
-}

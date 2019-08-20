@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('css/style_home.css')}}">
 </head>
 <body>
+    <div class="parallax">
 <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -56,8 +57,9 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
 
+        <div id="content">
+            
             <nav class="navbar" id="barra">
                 <div class="container-fluid">
 
@@ -71,20 +73,20 @@
                 </div>
             </nav>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 card-um text-white">
+                    Aqui vai alguma coisa!
+                </div>
 
-            <div class="card text-white" id="card-um">
-                <div class="card-header" id="header-um">Faça já seu depósito</div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
+                <div class="col-md-7 card-dois text-white">
+                    Aqui vai alguma coisa!
+                </div>
             </div>
-
-            <div class="card text-white float-right" id="card-dois">
-                <div class="card-header" id="header-um">Faça já seu depósito</div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-            </div>
+            
+        </div>        
+            
+        </div>
         </div>
     </div>
 
